@@ -10,11 +10,21 @@ from django.template import loader
 from django.urls import reverse
 
 
+import socket
+
+soketnik = socket.socket()
+host = socket.gethostname()
+port = 12221
+
+soketnik.connect((host, port))
+print('Connected to ' + host)
+
+
 @login_required(login_url="/login/")
 def index(request):
     context = {'segment': 'index'}
 
-    html_template = loader.get_template('home/index.html')
+    html_template = loader.get_template('home/index3.html')
     return HttpResponse(html_template.render(context, request))
 
 
@@ -42,3 +52,14 @@ def pages(request):
     except:
         html_template = loader.get_template('home/page-500.html')
         return HttpResponse(html_template.render(context, request))
+
+
+@login_required(login_url="/login/")
+def cars_postaw_kloca(request):
+    context = {'segment': 'index'}
+
+    mesedz = "PIERDOL SIE"
+    soketnik.send(mesedz.encode(encoding='utf8'))
+
+    html_template = loader.get_template('home/cars-test.html')
+    return HttpResponse(html_template.render(context, request))

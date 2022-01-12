@@ -21,14 +21,11 @@
 
 {% block content %}
 
-  <div class="login-box">
-
     <div class="login-logo">
-        <a target="_blank" rel="noopener noreferrer" 
-           href="https://appseed.us/admin-dashboards/django-dashboard-adminlte">Django <b>Admin</b>LTE</a>
+        <img src="/static/assets/img/vcg_logo.png" class="mx-auto d-block" alt="Vice City Government">
     </div>
 
-    <!-- /.login-logo -->
+  <div class="login-box">
     <div class="card">
       <div class="card-body login-card-body">
 
@@ -36,7 +33,7 @@
             {% if msg %}
                 {{ msg | safe }}
             {% else %}
-                Add your credentials
+                Your login must match with VCMP player name
             {% endif %}
         </p>
 

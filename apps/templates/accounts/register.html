@@ -20,14 +20,10 @@
 {% endblock stylesheets %}
 
 {% block content %}
-
-  <div class="register-box">
-
     <div class="login-logo">
-        <a target="_blank" rel="noopener noreferrer" 
-           href="https://appseed.us/admin-dashboards/django-dashboard-adminlte">Django <b>Admin</b>LTE</a>
-    </div>    
-
+        <img src="/static/assets/img/vcg_logo.png" class="mx-auto d-block" alt="Vice City Government">
+    </div>
+  <div class="register-box">
     <div class="card">
       <div class="card-body register-card-body">
         <p class="login-box-msg">
@@ -35,7 +31,7 @@
                 <span class="text-danger">{{ msg | safe }}</span>
             {% else %}
             <span>
-                Add your credentials
+                Your login must match with VCMP player name
             </span>
             {% endif %}            
         </p>
@@ -53,16 +49,6 @@
             </div>
           </div>
           <span class="text-error">{{ form.username.errors }}</span>
-          
-          <div class="input-group mb-3">
-            {{ form.email }}
-            <div class="input-group-append">
-              <div class="input-group-text">
-                <span class="fas fa-envelope"></span>
-              </div>
-            </div>
-          </div>
-          <span class="text-error">{{ form.email.errors }}</span>
 
           <div class="input-group mb-3">
             {{ form.password1 }}
@@ -89,7 +75,7 @@
               <div class="icheck-primary">
                 <input type="checkbox" id="agreeTerms" name="terms" value="agree">
                 <label for="agreeTerms">
-                I agree to the <a href="#">terms</a>
+                I agree to having fun.
                 </label>
               </div>
             </div>
