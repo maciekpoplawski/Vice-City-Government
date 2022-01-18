@@ -15,8 +15,9 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/vcg_venv" />
+      <excludeFolder url="file://$MODULE_DIR$/vc_government_venv" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.6 (Vice-City-Government)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.7 (vc_government_new_venv)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TemplatesService">

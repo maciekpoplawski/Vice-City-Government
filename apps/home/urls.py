@@ -10,7 +10,8 @@ urlpatterns = [
 
     # The home page
     path('', views.index, name='home'),
-    path('cars/', views.cars_postaw_kloca, name='cars'),
+    path('cars/', views.spawn_car, name='cars'),
+    path('sockets-test/', views.sockets_test, name='socketstest'),
 
     # Matches any html file
     re_path(r'^.*\.*', views.pages, name='pages'),

@@ -1,12 +1,21 @@
-# -*- encoding: utf-8 -*-
 """
-Copyright (c) 2019 - present AppSeed.us
+WSGI config for django_example project.
+
+It exposes the WSGI callable as a module-level variable named ``application``.
+
+For more information on this file, see
+https://docs.djangoproject.com/en/1.11/howto/deployment/wsgi/
 """
 
 import os
 
 from django.core.wsgi import get_wsgi_application
+import socketio
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'core.settings')
+from apps.home.views import sio
 
-application = get_wsgi_application()
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "django_example.settings")
+
+django_app = get_wsgi_application()
+application = socketio.WSGIApp(sio, django_app)
