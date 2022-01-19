@@ -21,31 +21,10 @@
 {% block content %}
 
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-            <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1>Car Create</h1>
-                    </div>
-                </div>
-            </div><!-- /.container-fluid -->
-        </section>
-
-        <!-- Main content -->
-        <section class="content">
-
-            <!-- Default box -->
-            <div class="card">
-                <form id="create_car" method="POST" action='#'>
-                    <input type="text" name="create_car_id" id="create_car_id" placeholder="CAR ID">
-                    <input type="submit" value="Spawn Car">
-                </form>
-            </div>
-            <!-- /.card -->
-
-        </section>
-        <!-- /.content -->
+        <img src="{{ car_img_link }}" class="rounded mx-auto pt-5 d-block" alt="{{ car_name }}"/>
+        <div class="col-md-12 text-center">
+            <button type="button" class="btn btn-success " onclick="create_car()">Buy Car</button>
+        </div>
     </div>
 
 {% endblock content %}
@@ -57,8 +36,6 @@
     <script src="/static/assets/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
     <script src="/static/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- pace-progress -->
-    <script src="/static/assets/plugins/pace-progress/pace.min.js"></script>
     <!-- AdminLTE App -->
     <script src="/static/assets/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
@@ -67,13 +44,16 @@
     <script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.3/socket.io.min.js"></script>
     <script type="text/javascript" charset="utf-8">
-        $(document).ready(function(){
+        function create_car(){
             var socket = io.connect();
-            $('form#create_car').submit(function(event) {
-                socket.emit('create_car', {car_id: $('#create_car_id').val()});
-                return false;
-            });
-        });
+            socket.emit(
+                'create_car',
+                {
+                    car_id: {{ car_id }},
+                    player_name: "{{ user }}"
+                }
+            );
+        }
     </script>
 
 {% endblock javascripts %}

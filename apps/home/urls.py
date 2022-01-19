@@ -11,6 +11,7 @@ urlpatterns = [
     # The home page
     path('', views.index, name='home'),
     path('cars/', views.spawn_car, name='cars'),
+    path('car-create/', views.create_car_from_store, name='create-car-from-store'),
     path('sockets-test/', views.sockets_test, name='socketstest'),
 
     # Matches any html file

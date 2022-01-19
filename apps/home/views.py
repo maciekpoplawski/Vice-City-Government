@@ -5,7 +5,7 @@ Copyright (c) 2019 - present AppSeed.us
 
 from django import template
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponseNotFound
 from django.template import loader
 from django.urls import reverse
 
@@ -41,8 +41,8 @@ def my_event(sid, message):
 
 
 @sio.event
-def my_broadcast_event(sid, message):
-    sio.emit('my_response', {'data': message['data']})
+def create_car(sid, message):
+    sio.emit('create_car_by_id', {'car_id': message['car_id'], 'player_name': message['player_name']})
 
 
 @sio.event
@@ -150,15 +150,90 @@ def sockets_test(request):
         thread = sio.start_background_task(background_thread)
 
     html_template = loader.get_template('home/sockets-sample.html')
-    return HttpResponse(html_template.render(context, request))\
+    return HttpResponse(html_template.render(context, request))
 
 
 @login_required(login_url="/login/")
 def spawn_car(request):
-    context = {'segment': 'index'}
+    context = {
+        'segment': 'index',
+        'cars_data': CAR_INFO
+    }
     global thread
     if thread is None:
         thread = sio.start_background_task(background_thread)
 
-    html_template = loader.get_template('home/cars-test.html')
+    html_template = loader.get_template('home/cars-gallery.html')
     return HttpResponse(html_template.render(context, request))
+
+
+@login_required(login_url="/login/")
+def create_car_from_store(request):
+    car_id = request.GET.get("car_id")
+
+    car_info = get_car_info(int(car_id))
+    if not car_info:
+        return HttpResponseNotFound("No such car. Please go fuck yourself.")
+
+    context = {
+        'segment': 'index',
+        'car_img_link': car_info.get("img"),
+        'car_name': car_info.get("name"),
+        'car_id': int(car_id)
+    }
+
+    global thread
+    if thread is None:
+        thread = sio.start_background_task(background_thread)
+
+    html_template = loader.get_template('home/create-car.html')
+    return HttpResponse(html_template.render(context, request))
+
+
+def get_car_info(car_id):
+    return CAR_INFO.get(car_id)
+
+
+CAR_INFO = {
+    200: {
+        "name": "Patriot",
+        "img": '/static/assets/img/cars/200_patriot.jpg',
+        "category": "military",
+    },
+    163: {
+        "name": "Barracks",
+        "img": '/static/assets/img/cars/163_barracks.jpg',
+        "category": "military",
+    },
+    185: {
+        "name": "Flatbed",
+        "img": '/static/assets/img/cars/185_flatbed.jpg',
+        "category": "truck",
+    },
+    135: {
+        "name": "Sentinel",
+        "img": '/static/assets/img/cars/135_sentinel.jpg',
+        "category": "sedan",
+    },
+    174: {
+        "name": "Sentinel XS",
+        "img": '/static/assets/img/cars/174_sentxs.jpg',
+        "category": "sedan",
+    },
+    172: {
+        "name": "Romero's Hearse",
+        "img": '/static/assets/img/cars/172_romero.jpg',
+        "category": "hearse",
+    },
+    224: {
+        "name": "Hotring Racer",
+        "img": '/static/assets/img/cars/224_hotring.jpg',
+        "category": "sports_car",
+    },
+    131: {
+        "name": "Idaho",
+        "img": '/static/assets/img/cars/131_idaho.jpg',
+        "category": "two_door",
+    },
+}
+
