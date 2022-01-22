@@ -19,14 +19,18 @@
 {% endblock stylesheets %}
 
 {% block content %}
-
     <div class="content-wrapper">
-        <img src="{{ car_img_link }}" class="rounded mx-auto pt-5 d-block" alt="{{ car_name }}"/>
-        <div class="col-md-12 text-center">
-            <button type="button" class="btn btn-success " onclick="create_car()">Buy Car</button>
-        </div>
-    </div>
+        <section class="content">
 
+            <!-- Default box -->
+            <div class="card">
+                <img src="/static/assets/img/cars/{{ car_id }}.jpg" class="img-fluid p-2" alt="{{ car_name }}"/>
+                <div class="col-md-12 text-center">
+                    <button type="button" class="btn btn-success " onclick="create_car()">Buy Car</button>
+                </div>
+            </div>
+        </section>
+    </div>
 {% endblock content %}
 
 <!-- Specific Page JS goes HERE  -->
@@ -44,7 +48,7 @@
     <script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.3/socket.io.min.js"></script>
     <script type="text/javascript" charset="utf-8">
-        function create_car(){
+        function create_car() {
             var socket = io.connect();
             socket.emit(
                 'create_car',

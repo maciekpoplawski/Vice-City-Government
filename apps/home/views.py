@@ -197,43 +197,189 @@ def get_car_info(car_id):
 CAR_INFO = {
     200: {
         "name": "Patriot",
-        "img": '/static/assets/img/cars/200_patriot.jpg',
-        "category": "military",
+        "img": '/static/assets/img/cars/200.jpg',
+        "category": "utility",
     },
     163: {
         "name": "Barracks",
-        "img": '/static/assets/img/cars/163_barracks.jpg',
-        "category": "military",
+        "category": "utility",
     },
     185: {
         "name": "Flatbed",
-        "img": '/static/assets/img/cars/185_flatbed.jpg',
         "category": "truck",
     },
     135: {
         "name": "Sentinel",
-        "img": '/static/assets/img/cars/135_sentinel.jpg',
         "category": "sedan",
     },
     174: {
         "name": "Sentinel XS",
-        "img": '/static/assets/img/cars/174_sentxs.jpg',
         "category": "sedan",
     },
     172: {
         "name": "Romero's Hearse",
-        "img": '/static/assets/img/cars/172_romero.jpg',
-        "category": "hearse",
+        "category": "utility",
     },
     224: {
         "name": "Hotring Racer",
-        "img": '/static/assets/img/cars/224_hotring.jpg',
         "category": "sports_car",
     },
     131: {
         "name": "Idaho",
-        "img": '/static/assets/img/cars/131_idaho.jpg',
         "category": "two_door",
     },
+    149: {
+        "name": "Esperanto",
+        "category": "two_door",
+    },
+    201: {
+        "name": "Love Fist",
+        "category": "stretch",
+    },
+    139: {
+        "name": "Stretch",
+        "category": "stretch",
+    },
+    168: {
+        "name": "Cabbie",
+        "category": "taxi",
+    },
+    216: {
+        "name": "Kaufman Cab",
+        "category": "taxi",
+    },
+    188: {
+        "name": "Zebra Cab",
+        "category": "taxi",
+    },
+    208: {
+        "name": "Walton",
+        "category": "pickup",
+    },
+    148: {
+        "name": "Moonbeam",
+        "category": "van",
+    },
+    142: {
+        "name": "Voodoo",
+        "category": "lowrider",
+    },
+    219: {
+        "name": "Rancher",
+        "category": "offroad",
+    },
+    134: {
+        "name": "Perennial",
+        "category": "station_wagon",
+    },
+    159: {
+        "name": "Banshee",
+        "category": "sports_car",
+    },
+    232: {
+        "name": "Hotring Racer",
+        "category": "sports_car",
+    },
+    233: {
+        "name": "Hotring Racer",
+        "category": "sports_car",
+    },
+    225: {
+        "name": "Sandking",
+        "category": "offroad",
+    },
+    153: {
+        "name": "Mr. Whoopee",
+        "category": "van",
+    },
+    220: {
+        "name": "FBI Rancher",
+        "category": "offroad",
+    },
+    222: {
+        "name": "Greenwood",
+        "category": "sedan",
+    },
+    215: {
+        "name": "Baggage Handler",
+        "category": "fun",
+    },
+    187: {
+        "name": "Caddy",
+        "category": "fun",
+    },
+    211: {
+        "name": "Deluxo	",
+        "category": "sports_car",
+    },
+    234: {
+        "name": "Bloodring Banger	",
+        "category": "sports_car",
+    },
+    235: {
+        "name": "Bloodring Banger",
+        "category": "sports_car",
+    },
+    197: {
+        "name": "Oceanic",
+        "category": "sedan",
+    },
+    196: {
+        "name": "Glendale",
+        "category": "sedan",
+    },
+    212: {
+        "name": "Burrito",
+        "category": "van",
+    },
+    179: {
+        "name": "Gang Burrito",
+        "category": "van",
+    },
+    143: {
+        "name": "Pony",
+        "category": "van",
+    },
+    170: {
+        "name": "Rumpo",
+        "category": "van",
+    },
+    189: {
+        "name": "Top Fun",
+        "category": "van",
+    },
+    132: {
+        "name": "Stinger",
+        "category": "sport",
+    },
+    145: {
+        "name": "Cheetah",
+        "category": "sport",
+    },
+    236: {
+        "name": "Cheetah Police",
+        "category": "sport",
+    },
+    146: {
+        "name": "Ambulance",
+        "category": "utility",
+    },
+    144: {
+        "name": "Mule",
+        "category": "truck",
+    },
+    213: {
+        "name": "Spand Express",
+        "category": "van",
+    },
+    229: {
+        "name": "Benson",
+        "category": "van",
+    },
+    138: {
+        "name": "Trashmaster",
+        "category": "utility",
+    },
+
 }
 
